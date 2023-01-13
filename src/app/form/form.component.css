@@ -1,0 +1,32 @@
+
+
+.section {
+    min-height: 10px;
+    border: 1px solid grey;
+    flex: 1;
+    background-color: #ccc;
+    border: 1px solid;
+}
+
+.strength {
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.grey {
+    background-color: #ccc;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}

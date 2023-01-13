@@ -1,0 +1,40 @@
+<form>
+  <label for="password">Enter password:</label>
+  <input
+    name="password"
+    type="password"
+    #password
+    (input)="validatePassword(password.value)"
+  />
+</form>
+<div class="strength">
+  <div class="section">Password strength:</div>
+  <div
+    class="section"
+    [ngClass]="{
+      grey: !passwordLength,
+      red:
+        (passwordLength < 8 && passwordLength > 0) ||
+        passwordStrength === 'easy',
+      yellow: passwordStrength === 'medium' && passwordLength >= 8,
+      green: passwordStrength === 'strong' && passwordLength >= 8
+    }"
+  ></div>
+  <div
+    class="section"
+    [ngClass]="{
+      grey: !passwordLength,
+      red: passwordLength < 8 && passwordLength > 0,
+      yellow: passwordStrength === 'medium' && passwordLength >= 8,
+      green: passwordStrength === 'strong' && passwordLength >= 8
+    }"
+  ></div>
+  <div
+    class="section"
+    [ngClass]="{
+      grey: !passwordLength || passwordStrength === 'medium',
+      red: passwordLength < 8 && passwordLength > 0,
+      green: passwordStrength === 'strong' && passwordLength >= 8
+    }"
+  ></div>
+</div>
