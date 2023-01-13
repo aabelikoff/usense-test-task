@@ -12,29 +12,27 @@
   <div
     class="section"
     [ngClass]="{
-      grey: !passwordLength,
-      red:
-        (passwordLength < 8 && passwordLength > 0) ||
-        passwordStrength === 'easy',
-      yellow: passwordStrength === 'medium' && passwordLength >= 8,
-      green: passwordStrength === 'strong' && passwordLength >= 8
+      grey: !length,
+      red: length === 'easy' || strength === 'easy',
+      yellow: length === 'strong' && strength === 'medium',
+      green: length === 'strong' && strength === 'strong'
     }"
   ></div>
   <div
     class="section"
     [ngClass]="{
-      grey: !passwordLength,
-      red: passwordLength < 8 && passwordLength > 0,
-      yellow: passwordStrength === 'medium' && passwordLength >= 8,
-      green: passwordStrength === 'strong' && passwordLength >= 8
+      grey: !length,
+      red: length === 'easy',
+      yellow: length === 'strong' && strength === 'medium',
+      green: length === 'strong' && strength === 'strong'
     }"
   ></div>
   <div
     class="section"
     [ngClass]="{
-      grey: !passwordLength || passwordStrength === 'medium',
-      red: passwordLength < 8 && passwordLength > 0,
-      green: passwordStrength === 'strong' && passwordLength >= 8
+      grey: !length || strength === 'medium',
+      red: length === 'easy',
+      green: length === 'strong' && strength === 'strong'
     }"
   ></div>
 </div>

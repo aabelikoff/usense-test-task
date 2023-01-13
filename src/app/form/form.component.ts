@@ -8,30 +8,40 @@ import { Component } from '@angular/core';
 export class FormComponent {
   EASY_PATTERN = /(^\p{L}+$)|(^\p{N}+$)|(^[^\p{L}\p{N}]+$)/u
   MEDIUM_PATTERN = /(^[\p{L}\p{N}]+$)|(^[^\p{L}]+$)|(^[^\p{N}]+$)/u
-  STRONG_PATTERN = /(\p{L}+\p{N}+[^\p{L}\p{N}]+)/u;
+  STRONG_PATTERN = /(\p{L}+\p{N}+[^\p{L}\p{N}]+)/u
   
+  // password = {
+  //   length: '',
+  //   strength: ''
+  // }
   
-  
-  defineStrength(password: string) {
+  length = ''
+  strength = ''
 
-    if (password.match(this.EASY_PATTERN))
+  defineStrength(value:string) {
+    if (value.match(this.EASY_PATTERN))
       return 'easy'
-    if (password.match(this.MEDIUM_PATTERN))
+    if (value.match(this.MEDIUM_PATTERN))
       return 'medium'
-    if (password.match(this.STRONG_PATTERN))
+    if (value.match(this.STRONG_PATTERN))
       return 'strong'
     return ''
   }
- 
-  
-  passwordLength: number = 0;  
-  passwordStrength: string = '';
+
+  defineLength(value: string) {
+    if (!value.length) 
+      return 'empty'
+    if (value.length >= 8)
+      return 'strong'
+    return 'easy'
+  }
   
   validatePassword(value: any) {
-    this.passwordLength = value.length;
-    this.passwordStrength = this.defineStrength(value)
-    
-
+    this.length = this.defineLength(value)
+    this.strength = this.defineStrength(value)
+    console.log(this.length + '  ' + this.strength);
+    console.log(value)
+    console.log(value.match(this.STRONG_PATTERN))
   }
 
 }
