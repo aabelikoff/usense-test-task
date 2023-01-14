@@ -1,38 +1,51 @@
-<form>
-  <label for="password">Enter password:</label>
-  <input
-    name="password"
-    type="password"
-    #password
-    (input)="validatePassword(password.value)"
-  />
+<form class="testForm">
+  <ul class="formBlock">
+    <li class="formLine">
+      <label for="password">Enter password:</label>
+      <input
+        name="password"
+        [type]="show ? 'text' : 'password'"
+        #password
+        (input)="validatePassword(password.value)"
+      />
+    </li>
+    <li class="formLine">
+      <div class="fildname"></div>
+      <div class="sections">
+        <input name="show" type="checkbox" (change)="setShow()" />
+        <label for="show">Show password</label>
+      </div>
+    </li>
+    <li class="formLine">
+      <div class="fildname">Password strength:</div>
+      <div class="sections">
+        <div
+          class="section"
+          [ngClass]="{
+            grey: length === 'empty',
+            red: length === 'weak' || strength === 1,
+            yellow: length === 'full' && strength === 2,
+            green: length === 'full' && strength === 3
+          }"
+        ></div>
+        <div
+          class="section"
+          [ngClass]="{
+            grey: length === 'empty',
+            red: length === 'weak',
+            yellow: length === 'full' && strength === 2,
+            green: length === 'full' && strength === 3
+          }"
+        ></div>
+        <div
+          class="section"
+          [ngClass]="{
+            grey: length === 'empty' || strength === 2,
+            red: length === 'weak',
+            green: length === 'full' && strength === 3
+          }"
+        ></div>
+      </div>
+    </li>
+  </ul>
 </form>
-<div class="strength">
-  <div class="section">Password strength:</div>
-  <div
-    class="section"
-    [ngClass]="{
-      grey: !length,
-      red: length === 'easy' || strength === 'easy',
-      yellow: length === 'strong' && strength === 'medium',
-      green: length === 'strong' && strength === 'strong'
-    }"
-  ></div>
-  <div
-    class="section"
-    [ngClass]="{
-      grey: !length,
-      red: length === 'easy',
-      yellow: length === 'strong' && strength === 'medium',
-      green: length === 'strong' && strength === 'strong'
-    }"
-  ></div>
-  <div
-    class="section"
-    [ngClass]="{
-      grey: !length || strength === 'medium',
-      red: length === 'easy',
-      green: length === 'strong' && strength === 'strong'
-    }"
-  ></div>
-</div>
