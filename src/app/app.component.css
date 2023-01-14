@@ -5,23 +5,9 @@
     font-family: 'Roboto', sans-serif;
     max-width: 800px;
     margin: 0 auto;
-    padding-top: 3rem;
+    padding-top: 10rem;
 }
 
-.formLine {
-    padding: 8px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.formLine>label,
-.fildname {
-    padding: 8px 16px 8px 0;
-    flex: 1;
-}
-
-.formLine>input,
-.sections {
-    padding: 8px 0px;
-    flex: 3;
+h1{
+    text-align: center;
 }

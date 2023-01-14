@@ -1,11 +1,13 @@
 .testForm {
     width: 100%;
-    background-color: #e7e4e4;
+    border-radius: 5px;
+    box-shadow: 0 0 8px #525050;
+    background-color: #faebd7;
 }
 
 .formBlock {
     list-style-type: none;
     padding: 0;
     margin: auto;
-    border: 1px dotted;
+    font-size: 1.2em;    
 }
