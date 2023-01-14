@@ -1,53 +1,11 @@
-
 .testForm {
     width: 100%;
+    background-color: #e7e4e4;
 }
 
-ul.formBlock {
+.formBlock {
     list-style-type: none;
     padding: 0;
     margin: auto;
     border: 1px dotted;
-}
-
-.formLine {
-    padding: 8px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.formLine>label, .fildname {
-    padding: 8px 16px 8px 0;
-    flex: 1;
-}
-
-.formLine>input, .sections {
-    padding: 8px 0px;
-    flex: 2;
-}
-
-.sections {
-    display: flex;
-}
-
-.section {
-    min-height: 10px;
-    flex: 1;
-    background-color: #ccc;
-}
-
-.grey {
-    background-color: #ccc;
-}
-
-.yellow {
-    background-color: yellow;
-}
-
-.green {
-    background-color: green;
-}
-
-.red {
-    background-color: red;
 }
